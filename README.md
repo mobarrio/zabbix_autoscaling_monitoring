@@ -12,9 +12,9 @@ Mediante las acciones de Autoregistracion podemos crear los nuevos nodos automat
 Cuando los nodos dejan de estar disponibles, automaticamente son eliminados de Zabbix via API.
 
 ## Installation
-1. Ponemos el archivo zbxapi.sh en el directorio de External scripts del Zabbix Server. [external_checks_scripts](https://github.com/tsubauaaa/zabbix_aws_integration/tree/master/external_checks_scripts).
+1. Ponemos el archivo zbxapi.sh en el directorio de External scripts del Zabbix Server. [external_scripts](https://github.com/mobarrio/zabbix_autoscaling_monitoring/blob/master/zbxapi.sh).
 
-2. Importamos el Template en nuestro Zabbix Server. [template](https://github.com/tsubauaaa/zabbix_aws_integration/blob/master/templates/Template_AWS_Integration.xml).
+2. Importamos el Template en nuestro Zabbix Server. [template](https://github.com/mobarrio/zabbix_autoscaling_monitoring/blob/master/Template%20Remove%20inactive%20host.xml).
    1. Ajustamos la MACRO de template {$ZBXSERVER} apuntandola a la IP de nuestro Zabbix Server.
 ![Imgur](https://i.imgur.com/rQrtB1G.png)
 
@@ -27,6 +27,9 @@ Cuando los nodos dejan de estar disponibles, automaticamente son eliminados de Z
 ![Imgur](https://i.imgur.com/u7AOQJZ.png)
 ![Imgur](https://i.imgur.com/lXFePHt.png)
 ![Imgur](https://i.imgur.com/fQNjf94.png)
+
+5. Configuramos nuestro Zabbix Agent para que se conecte con nuestro Server y se autoregistre.
+[zabbix_agentd.conf](https://github.com/mobarrio/zabbix_autoscaling_monitoring/blob/master/zabbix_agentd.conf)
 
 
 ## License
