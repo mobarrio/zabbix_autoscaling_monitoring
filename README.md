@@ -19,13 +19,13 @@ Cuando los nodos dejan de estar disponibles, automaticamente son eliminados de Z
 
 3. Creamos una accion de Auto Registracion para los nuevos nodos.
 4. Creamos una accion de Trigger para la eliminacion de los hosts.
-![Imgur](https://i.imgur.com/dy07x38l.png)
-![Imgur](https://i.imgur.com/ax6VA3Gl.png)
-![Imgur](https://i.imgur.com/xxKGmL6l.png)
-![Imgur](https://i.imgur.com/fQNjf94l.png)
-![Imgur](https://i.imgur.com/lXFePHtl.png)
-![Imgur](https://i.imgur.com/u7AOQJZl.png)
-![Imgur](https://i.imgur.com/rQrtB1Gl.png)
+![Imgur](https://i.imgur.com/dy07x38.png)
+![Imgur](https://i.imgur.com/ax6VA3G.png)
+![Imgur](https://i.imgur.com/xxKGmL6.png)
+![Imgur](https://i.imgur.com/fQNjf94.png)
+![Imgur](https://i.imgur.com/lXFePHt.png)
+![Imgur](https://i.imgur.com/u7AOQJZ.png)
+![Imgur](https://i.imgur.com/rQrtB1G.png)
 
 ## License
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
