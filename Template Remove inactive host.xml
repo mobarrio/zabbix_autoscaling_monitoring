@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>4.4</version>
+    <date>2020-04-02T10:28:15Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template Remove inactive host</template>
+            <name>Template Remove inactive host</name>
+            <description>Elimina Hosts via API cuando llevan 1h sin reportar informacion.</description>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>ZabbixServer</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>connstat</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>net.tcp.service[tcp,&quot;{$ZBXSERVER}&quot;,10051]</key>
+                    <delay>5m</delay>
+                    <history>1d</history>
+                    <trends>0</trends>
+                    <description>Checks if service is running and accepting TCP connections. &#13;
+Returns &#13;
+    0 - service is down&#13;
+    1 - service is running</description>
+                    <applications>
+                        <application>
+                            <name>ZabbixServer</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>Zabbix agent ping status</name>
+                    </valuemap>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>30m</params>
+                        </step>
+                    </preprocessing>
+                    <triggers>
+                        <trigger>
+                            <expression>{nodata(1h)}=1</expression>
+                            <name>Host Offline pendiente de eliminar</name>
+                            <priority>HIGH</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                        <trigger>
+                            <expression>{nodata(30m)}=1</expression>
+                            <name>Host Offline se eliminara en 30m</name>
+                            <priority>INFO</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+            </items>
+            <macros>
+                <macro>
+                    <macro>{$ZBXSERVER}</macro>
+                    <value>192.168.1.1</value>
+                    <description>IP del Zabbix Server</description>
+                </macro>
+            </macros>
+        </template>
+    </templates>
+    <value_maps>
+        <value_map>
+            <name>Zabbix agent ping status</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Up</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
+</zabbix_export>
